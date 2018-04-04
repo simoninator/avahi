@@ -71,6 +71,7 @@ static void create_second_service_browser(AvahiTimeout *timeout, AVAHI_GCC_UNUSE
 
     service_browser2 = avahi_s_service_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, SERVICE_TYPE, DOMAIN, 0, sb_callback, NULL);
     assert(service_browser2);
+    avahi_s_service_browser_start(service_browser2);
 
     poll_api->timeout_free(timeout);
 }
@@ -105,6 +106,7 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char *argv[]) {
 
     service_browser1 = avahi_s_service_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, SERVICE_TYPE, DOMAIN, 0, sb_callback, NULL);
     assert(service_browser1);
+    avahi_s_service_browser_start(service_browser1);
 
     poll_api->timeout_new(poll_api, avahi_elapse_time(&tv, 10000, 0), create_second_service_browser, NULL);
 

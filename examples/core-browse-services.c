@@ -192,6 +192,9 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char*argv[]) {
         goto fail;
     }
 
+    /* Start the service browser */
+    avahi_s_service_browser_start(sb);
+
     /* Run the main loop */
     avahi_simple_poll_loop(simple_poll);
 
