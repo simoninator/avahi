@@ -547,6 +547,7 @@ AvahiSRecordBrowser *avahi_s_record_browser_new(
     }
 
     b->dead = 0;
+    b->defer_time_event = NULL;
     b->server = server;
     b->interface = interface;
     b->protocol = protocol;
