@@ -154,4 +154,9 @@ void avahi_s_service_type_browser_free(AvahiSServiceTypeBrowser *b) {
     avahi_free(b);
 }
 
+void avahi_s_service_type_browser_start(AvahiSServiceTypeBrowser *b) {
+    assert(b);
+
+    avahi_s_record_browser_start_query(b->record_browser);
+}
 

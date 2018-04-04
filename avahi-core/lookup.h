@@ -172,6 +172,9 @@ AvahiSServiceTypeBrowser *avahi_s_service_type_browser_new(
     AvahiSServiceTypeBrowserCallback callback,
     void* userdata);
 
+/** Start querying on an AvahiSServiceTypeBrowser object */
+void avahi_s_service_type_browser_start(AvahiSServiceTypeBrowser *b);
+
 /** Free an AvahiSServiceTypeBrowser object */
 void avahi_s_service_type_browser_free(AvahiSServiceTypeBrowser *b);
 
