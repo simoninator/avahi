@@ -354,6 +354,7 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char *argv[]) {
 
     k = avahi_key_new("_http._tcp.0pointer.de", AVAHI_DNS_CLASS_IN, AVAHI_DNS_TYPE_PTR);
     r = avahi_s_record_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, k, 0, record_browser_callback, NULL);
+    avahi_s_record_browser_start_query(r);
     avahi_key_unref(k);
 
     hnr = avahi_s_host_name_resolver_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "cname.local", AVAHI_PROTO_UNSPEC, 0, hnr_callback, NULL);

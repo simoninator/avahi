@@ -75,6 +75,9 @@ AvahiSRecordBrowser *avahi_s_record_browser_new(
 /** Free an AvahiSRecordBrowser object */
 void avahi_s_record_browser_free(AvahiSRecordBrowser *b);
 
+/** Start querying on an AvahiSRecordBrowser object */
+void avahi_s_record_browser_start_query(AvahiSRecordBrowser *b);
+
 /** Callback prototype for AvahiSHostNameResolver events */
 typedef void (*AvahiSHostNameResolverCallback)(
     AvahiSHostNameResolver *r,

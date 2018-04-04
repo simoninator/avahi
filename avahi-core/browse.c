@@ -560,12 +560,19 @@ AvahiSRecordBrowser *avahi_s_record_browser_new(
 
     AVAHI_LLIST_PREPEND(AvahiSRecordBrowser, browser, server->record_browsers, b);
 
-    /* The currently cached entries are scanned a bit later, and than we will start querying, too */
-    b->defer_time_event = avahi_time_event_new(server->time_event_queue, NULL, defer_callback, b);
-    assert(b->defer_time_event);
-
     return b;
 }
+
+
+void avahi_s_record_browser_start_query(AvahiSRecordBrowser *b) {
+    assert(b);
+    assert(!b->dead);
+
+    /* The currently cached entries are scanned a bit later, and than we will start querying, too */
+    b->defer_time_event = avahi_time_event_new(b->server->time_event_queue, NULL, defer_callback, b);
+    assert(b->defer_time_event);
+}
+
 
 void avahi_s_record_browser_free(AvahiSRecordBrowser *b) {
     assert(b);
