@@ -124,6 +124,9 @@ AvahiSAddressResolver *avahi_s_address_resolver_new(
     AvahiSAddressResolverCallback calback,
     void* userdata);
 
+/** Start querying on an AvahiSAddressResolver object */
+void avahi_s_address_resolver_start(AvahiSAddressResolver *r);
+
 /** Free an AvahiSAddressResolver object */
 void avahi_s_address_resolver_free(AvahiSAddressResolver *r);
 

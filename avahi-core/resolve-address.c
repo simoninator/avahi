@@ -247,6 +247,13 @@ AvahiSAddressResolver *avahi_s_address_resolver_new(
     return r;
 }
 
+void avahi_s_address_resolver_start(AvahiSAddressResolver *r) {
+    assert(r);
+
+    if(r->record_browser)
+        avahi_s_record_browser_start_query(r->record_browser);
+}
+
 void avahi_s_address_resolver_free(AvahiSAddressResolver *r) {
     assert(r);
 
