@@ -275,6 +275,16 @@ fail:
     return NULL;
 }
 
+void avahi_s_host_name_resolver_start(AvahiSHostNameResolver *r) {
+    assert(r);
+
+    if(r->record_browser_a)
+        avahi_s_record_browser_start_query(r->record_browser_a);
+
+    if(r->record_browser_aaaa)
+        avahi_s_record_browser_start_query(r->record_browser_aaaa);
+}
+
 void avahi_s_host_name_resolver_free(AvahiSHostNameResolver *r) {
     assert(r);
 

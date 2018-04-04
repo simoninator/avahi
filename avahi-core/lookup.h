@@ -100,6 +100,9 @@ AvahiSHostNameResolver *avahi_s_host_name_resolver_new(
     AvahiSHostNameResolverCallback calback,
     void* userdata);
 
+/** Start querying on an AvahiSHostNameResolver object */
+void avahi_s_host_name_resolver_start(AvahiSHostNameResolver *r);
+
 /** Free a AvahiSHostNameResolver object */
 void avahi_s_host_name_resolver_free(AvahiSHostNameResolver *r);
 
