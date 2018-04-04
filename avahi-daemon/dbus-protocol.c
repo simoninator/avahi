@@ -496,6 +496,7 @@ static DBusHandlerResult msg_server_impl(DBusConnection *c, DBusMessage *m, AVAH
             avahi_dbus_sync_host_name_resolver_free(i);
             return avahi_dbus_respond_error(c, m, avahi_server_errno(avahi_server), NULL);
         }
+        avahi_s_host_name_resolver_start(i->host_name_resolver);
 
         return DBUS_HANDLER_RESULT_HANDLED;
 
@@ -541,6 +542,8 @@ static DBusHandlerResult msg_server_impl(DBusConnection *c, DBusMessage *m, AVAH
             avahi_dbus_sync_address_resolver_free(i);
             return avahi_dbus_respond_error(c, m, avahi_server_errno(avahi_server), NULL);
         }
+
+        avahi_s_address_resolver_start(i->address_resolver);
 
         return DBUS_HANDLER_RESULT_HANDLED;
 
@@ -758,6 +761,8 @@ static DBusHandlerResult msg_server_impl(DBusConnection *c, DBusMessage *m, AVAH
             avahi_dbus_sync_service_resolver_free(i);
             return avahi_dbus_respond_error(c, m, avahi_server_errno(avahi_server), NULL);
         }
+
+        avahi_s_service_resolver_start(i->service_resolver);
 
         return DBUS_HANDLER_RESULT_HANDLED;
 
