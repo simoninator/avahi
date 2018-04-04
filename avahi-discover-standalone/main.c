@@ -208,6 +208,8 @@ static void service_type_browser_callback(
     g_hash_table_insert(service_type_hash_table, st->service_type, st);
 
     st->browser = avahi_s_service_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, st->service_type, domain, 0, service_browser_callback, NULL);
+    if(st->browser)
+        avahi_s_service_browser_start(st->browser);
 }
 
 static void update_label(struct Service *s, const gchar *hostname, const AvahiAddress *a, guint16 port, AvahiStringList *txt) {
@@ -309,6 +311,9 @@ static void tree_view_on_cursor_changed(AVAHI_GCC_UNUSED GtkTreeView *tv, AVAHI_
     update_label(s, NULL, NULL, 0, NULL);
 
     service_resolver = avahi_s_service_resolver_new(server, s->interface, s->protocol, s->service_name, s->service_type->service_type, s->domain_name, AVAHI_PROTO_UNSPEC, 0, service_resolver_callback, s);
+
+    if(service_resolver)
+        avahi_s_service_resolver_start(service_resolver);
 }
 
 static gboolean main_window_on_delete_event(AVAHI_GCC_UNUSED GtkWidget *widget, AVAHI_GCC_UNUSED GdkEvent *event, AVAHI_GCC_UNUSED gpointer user_data) {
@@ -359,6 +364,9 @@ int main(int argc, char *argv[]) {
     g_assert(server);
 
     service_type_browser = avahi_s_service_type_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, argc >= 2 ? argv[1] : NULL, 0, service_type_browser_callback, NULL);
+
+    if(service_type_browser)
+        avahi_s_service_type_browser_start(service_type_browser);
 
     gtk_main();
 
