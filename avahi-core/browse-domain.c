@@ -216,6 +216,13 @@ fail:
     return NULL;
 }
 
+void avahi_s_domain_browser_start(AvahiSDomainBrowser *b) {
+    assert(b);
+
+    if(b->record_browser)
+        avahi_s_record_browser_start_query(b->record_browser);
+}
+
 void avahi_s_domain_browser_free(AvahiSDomainBrowser *b) {
     assert(b);
 

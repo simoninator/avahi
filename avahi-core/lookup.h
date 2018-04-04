@@ -151,6 +151,9 @@ AvahiSDomainBrowser *avahi_s_domain_browser_new(
     AvahiSDomainBrowserCallback callback,
     void* userdata);
 
+/** Start querying on an AvahiSDomainBrowser object */
+void avahi_s_domain_browser_start(AvahiSDomainBrowser *b);
+
 /** Free an AvahiSDomainBrowser object */
 void avahi_s_domain_browser_free(AvahiSDomainBrowser *b);
 
