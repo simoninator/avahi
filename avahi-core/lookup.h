@@ -245,6 +245,9 @@ AvahiSServiceResolver *avahi_s_service_resolver_new(
     AvahiSServiceResolverCallback calback,
     void* userdata);
 
+/** Start querying on an AvahiSServiceResolver object */
+void avahi_s_service_resolver_start(AvahiSServiceResolver *r);
+
 /** Free an AvahiSServiceResolver object */
 void avahi_s_service_resolver_free(AvahiSServiceResolver *r);
 

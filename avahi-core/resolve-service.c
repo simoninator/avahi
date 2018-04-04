@@ -458,6 +458,19 @@ AvahiSServiceResolver *avahi_s_service_resolver_new(
     return r;
 }
 
+void avahi_s_service_resolver_start(AvahiSServiceResolver *r) {
+    assert(r);
+
+    if (r->record_browser_srv)
+        avahi_s_record_browser_start_query(r->record_browser_srv);
+    if (r->record_browser_txt)
+        avahi_s_record_browser_start_query(r->record_browser_txt);
+    if (r->record_browser_a)
+        avahi_s_record_browser_start_query(r->record_browser_a);
+    if (r->record_browser_aaaa)
+        avahi_s_record_browser_start_query(r->record_browser_aaaa);
+}
+
 void avahi_s_service_resolver_free(AvahiSServiceResolver *r) {
     assert(r);
 
