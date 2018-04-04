@@ -163,6 +163,7 @@ static void record_browser_callback(
                 r->record_browser = avahi_s_record_browser_new(r->server, r->interface, r->protocol, r->key, AVAHI_LOOKUP_USE_MULTICAST, record_browser_callback, r);
 
                 if (r->record_browser) {
+                    avahi_s_record_browser_start_query(r->record_browser);
                     start_timeout(r);
                     break;
                 }

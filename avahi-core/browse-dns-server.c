@@ -181,6 +181,9 @@ static void record_browser_callback(
                 host_name_resolver_callback, i);
             i->flags = flags;
 
+            if(i->host_name_resolver)
+                avahi_s_host_name_resolver_start(i->host_name_resolver);
+
             AVAHI_LLIST_PREPEND(AvahiDNSServerInfo, info, b->info, i);
 
             b->n_info++;
