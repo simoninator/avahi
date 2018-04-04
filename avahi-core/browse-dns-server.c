@@ -306,6 +306,13 @@ fail:
     return NULL;
 }
 
+void avahi_s_dns_server_browser_start(AvahiSDNSServerBrowser *b) {
+    assert(b);
+
+    if(b->record_browser)
+        avahi_s_record_browser_start_query(b->record_browser);
+}
+
 void avahi_s_dns_server_browser_free(AvahiSDNSServerBrowser *b) {
     assert(b);
 

@@ -79,6 +79,9 @@ AvahiSDNSServerBrowser *avahi_s_dns_server_browser_new(
     AvahiSDNSServerBrowserCallback callback,
     void* userdata);
 
+/** Start querying on an AvahiSDNSBrowser object */
+void avahi_s_dns_server_browser_start(AvahiSDNSServerBrowser *b);
+
 /** Free an AvahiSDNSServerBrowser object */
 void avahi_s_dns_server_browser_free(AvahiSDNSServerBrowser *b);
 

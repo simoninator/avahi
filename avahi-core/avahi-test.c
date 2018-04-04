@@ -376,6 +376,7 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char *argv[]) {
     avahi_s_service_resolver_start(sr);
 
     dsb = avahi_s_dns_server_browser_new(server, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "local", AVAHI_DNS_SERVER_RESOLVE, AVAHI_PROTO_UNSPEC, 0, dsb_callback, NULL);
+    avahi_s_dns_server_browser_start(dsb);
 
     avahi_elapse_time(&tv, 1000*5, 0);
     poll_api->timeout_new(poll_api, &tv, dump_timeout_callback, server);
