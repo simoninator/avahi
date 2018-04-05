@@ -569,9 +569,13 @@ void avahi_s_record_browser_start_query(AvahiSRecordBrowser *b) {
     assert(b);
     assert(!b->dead);
 
+    /* If the number of lookups greater than zero, the object has already been used.
+     * To restart querying, call only avahi_s_record_browser_restart */
+    if(b->n_lookups > 0)
+        return;
+
     /* The currently cached entries are scanned a bit later, and than we will start querying, too */
-    b->defer_time_event = avahi_time_event_new(b->server->time_event_queue, NULL, defer_callback, b);
-    assert(b->defer_time_event);
+    avahi_s_record_browser_restart(b);
 }
 
 
