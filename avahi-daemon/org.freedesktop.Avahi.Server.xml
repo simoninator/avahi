@@ -153,7 +153,26 @@
       <arg name="path" type="o" direction="out"/>
     </method>
 
+    <method name="DomainBrowserNew2">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="domain" type="s" direction="in"/>
+      <arg name="btype" type="i" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
     <method name="ServiceTypeBrowserNew">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="domain" type="s" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
+    <method name="ServiceTypeBrowserNew2">
       <arg name="interface" type="i" direction="in"/>
       <arg name="protocol" type="i" direction="in"/>
       <arg name="domain" type="s" direction="in"/>
@@ -172,7 +191,30 @@
       <arg name="path" type="o" direction="out"/>
     </method>
 
+    <method name="ServiceBrowserNew2">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="type" type="s" direction="in"/>
+      <arg name="domain" type="s" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
+
     <method name="ServiceResolverNew">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="name" type="s" direction="in"/>
+      <arg name="type" type="s" direction="in"/>
+      <arg name="domain" type="s" direction="in"/>
+      <arg name="aprotocol" type="i" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
+    <method name="ServiceResolverNew2">
       <arg name="interface" type="i" direction="in"/>
       <arg name="protocol" type="i" direction="in"/>
       <arg name="name" type="s" direction="in"/>
@@ -194,7 +236,26 @@
       <arg name="path" type="o" direction="out"/>
     </method>
 
+    <method name="HostNameResolverNew2">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="name" type="s" direction="in"/>
+      <arg name="aprotocol" type="i" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
     <method name="AddressResolverNew">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="address" type="s" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
+
+    <method name="AddressResolverNew2">
       <arg name="interface" type="i" direction="in"/>
       <arg name="protocol" type="i" direction="in"/>
       <arg name="address" type="s" direction="in"/>
@@ -214,6 +275,16 @@
       <arg name="path" type="o" direction="out"/>
     </method>
 
+    <method name="RecordBrowserNew2">
+      <arg name="interface" type="i" direction="in"/>
+      <arg name="protocol" type="i" direction="in"/>
+      <arg name="name" type="s" direction="in"/>
+      <arg name="clazz" type="q" direction="in"/>
+      <arg name="type" type="q" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+
+      <arg name="path" type="o" direction="out"/>
+    </method>
 
   </interface>
 </node>
